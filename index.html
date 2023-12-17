@@ -92,6 +92,12 @@
         text-shadow: none;
     }
 
+    .sound-change {
+    right: 10px;
+    top: 10px;
+    position: absolute;
+    width: 4%;
+}
     @media only screen and (max-width: 1900px) {
   /* For mobile phones: */
   div.idea {
@@ -101,13 +107,17 @@
     background-size: cover;
     background-repeat: no-repeat;
   }
+
     }
    
-    @media only screen and (max-height: 1000px) {
+    @media only screen and (max-width: 1000px) {
   html,body {
     background-size: cover;
     background-repeat: no-repeat;
   }
+  .sound-change {
+        width: 12%;
+    }
     }
 
     @media screen and (max-width: 1000px) {
@@ -116,12 +126,7 @@
   }
 }
 
-.sound-change {
-    right: 10px;
-    top: 10px;
-    position: absolute;
-    width: 4%;
-}
+
 </style>
 <body>
     <h1>Welcome!</h1>
