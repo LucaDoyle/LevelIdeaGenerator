@@ -175,6 +175,7 @@
     console.log("Level theme: ", LevelTheme[LevelThemeRandom], "\nLevel background: ", LevelBackground[LevelBackgroundRandom], "\nObjects: ", selectedObjects, "\nDecoration: ", selectedDecor)
     var soundEffect = new Audio("sound-effect.wav");
     if (localStorage.getItem("sound-on") == "yes" ) {
+    soundEffect.volume = 0.3;
     soundEffect.play();
     };
     };
