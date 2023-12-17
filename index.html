@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Level Idea Generator</title>
+    <link rel="icon" type="image/png" href="/favicon.png"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Asap:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Titan+One&display=swap" rel="stylesheet">
+</head>
+<style>
+    h1 {
+        font-family: 'Titan One', sans-serif;
+        margin-top: 0px;
+        padding-top: 10px;
+        color: white;
+        text-shadow: 2px 2px #00000044;
+    }
+    html,body {
+        margin: auto;
+        text-align: center;
+        background-image: url("background.png");    
+        height: 100%;
+        width: 100%;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;
+        margin-top: 0px;
+    }
+
+    p {
+        font-family: 'Asap', sans-serif;
+        font-weight: bold;
+        color: white;
+        text-shadow: 2px 2px #00000044;
+        font-size: 20px;
+    }
+
+    div.idea {
+        background-color: #FFFFFF;
+        border: 1px solid #CCCCCC;
+        border-radius: 10px;
+        margin-left: 700px;
+        margin-right: 700px;
+    }
+
+
+    p.idea {
+        color: black;
+        text-shadow: none;
+    }
+
+
+    p.before-idea {
+        font-size: 25px;
+        font-weight: bolder;
+    }
+
+    button {
+        background-color: black;
+        font-family: 'Asap', sans-serif;
+        font-weight: bold;
+        color: white;
+        margin: 20px;
+        width: 130px;
+        height: 50px;
+        font-size: 20px;
+        border-radius: 20px;
+        border: none;
+        transition-duration: 0.2s;
+        text-shadow: 2px 2px #00000044;
+        transition-property: all;
+    }
+
+    button:hover {
+        width: 140px;
+        height: 60px;
+        border-radius: 23px;
+        font-size: 23px;
+    }
+
+    button:active {
+        background-color: rgba(255, 255, 255, 0.500);
+        color: rgba(0, 0, 0, 0.500);
+        text-shadow: none;
+    }
+
+    @media only screen and (max-width: 1280px) {
+  /* For mobile phones: */
+  div.idea {
+    margin: auto;
+    min-width: 40%;
+    max-width: 90%;
+    background-size: auto;
+  }
+    }
+   
+    @media only screen and (max-height: 1280) {
+  html,body {
+    background-size: auto;
+  }
+    }
+</style>
+<body>
+    <h1>Welcome!</h1>
+    <p>Click Randomise, and we'll give you a level idea!</p>
+    <p class="before-idea">Level theme</p>
+    <div class="idea">
+        <p id="level-theme" class="idea">Click Randomise</p>
+    </div>
+    <p class="before-idea">Level background</p>
+    <div class="idea">
+        <p id="level-background" class="idea">Click Randomise</p>
+    </div>
+    <p class="before-idea">Objects</p>
+    <div class="idea">
+        <p id="objects" class="idea">Click Randomise</p>
+    </div>
+    <p class="before-idea">Level decoration</p>
+    <div class="idea">
+        <p id="level-decor" class="idea">Click Randomise</p>
+    </div>
+    <button id="random-button">Randomise</button>
+</body>
+
+<script>
+    document.getElementById("random-button").onclick = function () {
+    var LevelTheme = ["Original", "Digital"];
+    var LevelBackground = ["Original", "Digital", "Medieval", "Future", "Falloween", "Winter"]
+    var UsefulObjects = [" Slime Floors", " Trenches", " Hoop Platforms", " Conveyors", " Bumper Blocks", " Spinning Plates", " Rotating Beams", " Rotating Walls", " Big Fans", " See-saws", " Slingus Flinguses", " Push Boxes", " Drawbridges", " Swinging Axes", " Rotating Hammers", " Pendulums", " Thicc Bonkuses", " Cannons", " Blizzard Fans", " Punching Glove", " Turnstiles", " Door Dash Doors", " Bumpers", " Drums", " Boom Blasters", " Bounce Boards", " Speed Arches", " Bean Barriers", " Power-up Spawners", " Carry Object Spawners", " Pressure Plates", " Trigger Buttons"]
+    var LevelDecor = [" Flags", " Signs", " Rainbows", " Arches", " Clouds"]
+    const shuffledObjects = UsefulObjects.sort(() => 0.5 - Math.random());
+    let selectedObjects = shuffledObjects.slice(0, 3);
+    const shuffledDecor = LevelDecor.sort(() => 0.5 - Math.random());
+    let selectedDecor = shuffledDecor.slice(0, 2);
+    
+    const LevelThemeRandom = Math.floor(Math.random() * LevelTheme.length);
+    document.getElementById("level-theme").innerText = LevelTheme[LevelThemeRandom];
+
+    const LevelBackgroundRandom = Math.floor(Math.random() * LevelBackground.length);
+    document.getElementById("level-background").innerText = LevelBackground[LevelBackgroundRandom];
+
+    document.getElementById("objects").innerText = selectedObjects;
+
+    document.getElementById("level-decor").innerText = selectedDecor;
+
+    console.log("Level theme: ", LevelTheme[LevelThemeRandom], "\nLevel background: ", LevelBackground[LevelBackgroundRandom], "\nObjects: ", selectedObjects, "\nDecoration: ", selectedDecor)
+    };
+</script>    
+</html>
