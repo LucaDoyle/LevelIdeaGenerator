@@ -115,9 +115,17 @@
     width: 100%; /* The width is 100%, when the viewport is 800px or smaller */
   }
 }
+
+.sound-change {
+    right: 10px;
+    top: 10px;
+    position: absolute;
+    width: 4%;
+}
 </style>
 <body>
     <h1>Welcome!</h1>
+    <img src="sound-icon.png" class="sound-change" id="sound-icon" onclick="changeSound();">
     <p>Click Randomise, and we'll give you a level idea!</p>
     <p class="before-idea">Level theme</p>
     <div class="idea">
@@ -160,6 +168,22 @@
     document.getElementById("level-decor").innerText = selectedDecor;
 
     console.log("Level theme: ", LevelTheme[LevelThemeRandom], "\nLevel background: ", LevelBackground[LevelBackgroundRandom], "\nObjects: ", selectedObjects, "\nDecoration: ", selectedDecor)
+    var soundEffect = new Audio("sound-effect.wav");
+    if (localStorage.getItem("sound-on") == "yes" ) {
+    soundEffect.play();
     };
+    };
+
+    function changeSound () {
+    if (localStorage.getItem("sound-on") == "no" ) {
+        localStorage.setItem("sound-on", "yes");
+        document.getElementById("sound-icon").style.filter = "invert(0)";
+    } else {
+        localStorage.setItem("sound-on", "no");
+        document.getElementById("sound-icon").style.filter = "invert(1)";
+    }
+    };
+
+
 </script>    
 </html>
