@@ -10,6 +10,6 @@ This site has no affiliation with Mediatonic Limited or Epic Games Corporation.
 Some objects aren't present, such as the Start Line. This is because, for example, the start line is needed in every level, anyway.
 
 # Known issues
-Center issues on certain devices
+There are no known issues at the moment. However, if you find one, don't hesitate to open an issue!
 
 ### Have fun!
