@@ -175,12 +175,12 @@
     };
 
     function changeSound () {
-    if (localStorage.getItem("sound-on") == "no" ) {
-        localStorage.setItem("sound-on", "yes");
-        document.getElementById("sound-icon").style.filter = "invert(0)";
-    } else {
+    if (localStorage.getItem("sound-on") == "yes" ) {
         localStorage.setItem("sound-on", "no");
         document.getElementById("sound-icon").style.filter = "invert(1)";
+    } else {
+        localStorage.setItem("sound-on", "yes");
+        document.getElementById("sound-icon").style.filter = "invert(0)";
     }
     };
 
