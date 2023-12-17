@@ -9,4 +9,7 @@ You then have a random idea. Don't like it? Click Randomise again, and again, an
 This site has no affiliation with Mediatonic Limited or Epic Games Corporation.
 Some objects aren't present, such as the Start Line. This is because, for example, the start line is needed in every level, anyway.
 
+# Known issues
+There may be some extra space at the bottom of the page on tablet devices.
+
 ### Have fun!
