@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Level Idea Generator</title>
+    <title>Level Idea Generator Beta</title>
     <link rel="icon" type="image/png" href="favicon.png"/>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -151,30 +151,23 @@
     font-size: 23px;
 }
 
+h2 {
+    font-family: 'Asap', sans-serif;
+    text-shadow: 2px 2px #00000044;
+    font-weight: bold;
+    font-size: 50px;
+    color: white;
+}
+
 
 </style>
 <body>
     <h1>Welcome!</h1>
     <img src="sound-icon.png" class="sound-change" id="sound-icon" onclick="changeSound();">
-    <p>Click Randomise, and we'll give you a level idea!</p>
-    <p class="before-idea">Level theme</p>
-    <div class="idea">
-        <p id="level-theme" class="idea">Click Randomise</p>
-    </div>
-    <p class="before-idea">Level background</p>
-    <div class="idea">
-        <p id="level-background" class="idea">Click Randomise</p>
-    </div>
-    <p class="before-idea">Objects</p>
-    <div class="idea">
-        <p id="objects" class="idea">Click Randomise</p>
-    </div>
-    <p class="before-idea">Level decoration</p>
-    <div class="idea">
-        <p id="level-decor" class="idea">Click Randomise</p>
-    </div>
+    <p>This is a beta. We're making this tool better.</p>
+    <h2 id="output">Click Randomise to start</h2>
     <button id="random-button">Randomise</button>
-    <button id="random-button" class="button-beta" onclick="window.location.href = ('beta.html')">Beta</button>
+    <button id="random-button" class="button-beta" onclick="window.location.href = ('index.html')">Classic</button>
 </body>
 
 <script>
@@ -183,26 +176,29 @@
     if (localStorage.getItem("sound-on") == "") {
         localStorage.setItem("sound-on", "yes");
     }
-    var LevelTheme = ["Original", "Digital"];
-    var LevelBackground = ["Original", "Digital", "Medieval", "Future", "Falloween", "Winter"]
-    var UsefulObjects = [" Spinning Plates", " Rotating Beams", " Rotating Walls", " Big Fans", " See-saws", " Slingus Flinguses", " Push Boxes", " Drawbridges", " Swinging Axes", " Rotating Hammers", " Pendulums", " Thicc Bonkuses", " Cannons", " Blizzard Fans", " Punching Glove", " Turnstiles", " Door Dash Doors", " Bumpers", " Drums", " Boom Blasters", " Bounce Boards", " Speed Arches", " Bean Barriers", " Power-up Spawners", " Carry Object Spawners", " Pressure Plates", " Trigger Buttons"]
-    var LevelDecor = [" Flags", " Signs", " Rainbows", " Arches", " Clouds"]
-    const shuffledObjects = UsefulObjects.sort(() => 0.5 - Math.random());
-    let selectedObjects = shuffledObjects.slice(0, 3);
-    const shuffledDecor = LevelDecor.sort(() => 0.5 - Math.random());
-    let selectedDecor = shuffledDecor.slice(0, 2);
+    var LevelTypesStarter  = ["An intresting", "A puzzle", "An amazing", "A difficult", "An exciting"];
+    var LevelBackgroundStarter = ["An original", "A digital", "A medieval", "A futuristic", "A spooky", "A wintery"]
+    var PremadeObjects = [" full of Spinning Plates", " with lots of Rotating Beams", " including Rotating Walls", " with Big Fans", " maybe with a few See-saws", " full of Slingus Flinguses", " with lots of Push Boxes", " including Drawbridges", " maybe with a few Swinging Axes", " with Rotating Hammers", " with painful Pendulums", " including Mr/Ms Thicc Bonkus", " maybe with a few Cannons", " with a lot of Blizzard Fans", " with Punching Gloves", " including Turnstiles", " with Door Dash Doors", " with a few Bumpers", " a lot of Drums", " with a few Boom Blasters", " with Bounce Boards", " with some Speed Arches", " with blocky Bean Barriers", " maybe with a few Power-up Spawners", " maybe with a few Carry Object Spawners", " with some Pressure Plates", " with Trigger Buttons", " with a lot of Flags", " including Signs", " with Rainbows", " with some arches", " including clouds"]
+    var MakeTheseObjects = [" with some fruit", " with a few clocks", " including trampolines", " full of food", " with vegetables", " with a massive clocktower", " including computers", " full of christmas trees", " decorate with loads of lights", " including some every-day living objects", " with some animals", " with a few books", " full of game consoles", " including some cars", " maybe with a few board games"]
+    const LevelStarters = LevelTypesStarter.concat(LevelBackgroundStarter);
+    const LevelStartersRandom = Math.floor(Math.random() * LevelStarters.length);
+
+    const LevelObjects = PremadeObjects.concat(MakeTheseObjects);
+    const shuffledLevelObjects = LevelObjects.sort(() => 0.5 - Math.random());
+    let selectedLevelObjects = shuffledLevelObjects.slice(0, getRandom(1,4));
     
-    const LevelThemeRandom = Math.floor(Math.random() * LevelTheme.length);
-    document.getElementById("level-theme").innerText = LevelTheme[LevelThemeRandom];
+    console.log(LevelStarters[LevelStartersRandom])
+    console.log(selectedLevelObjects)
+    document.getElementById("output").innerText = LevelStarters[LevelStartersRandom] + " level," + selectedLevelObjects + ".";
 
-    const LevelBackgroundRandom = Math.floor(Math.random() * LevelBackground.length);
-    document.getElementById("level-background").innerText = LevelBackground[LevelBackgroundRandom];
+    // const LevelBackgroundRandom = Math.floor(Math.random() * LevelBackground.length);
+    // document.getElementById("level-background").innerText = LevelBackground[LevelBackgroundRandom];
 
-    document.getElementById("objects").innerText = selectedObjects;
+    // document.getElementById("objects").innerText = selectedObjects;
 
-    document.getElementById("level-decor").innerText = selectedDecor;
+    // document.getElementById("level-decor").innerText = selectedDecor;
 
-    console.log("Level theme: ", LevelTheme[LevelThemeRandom], "\nLevel background: ", LevelBackground[LevelBackgroundRandom], "\nObjects: ", selectedObjects, "\nDecoration: ", selectedDecor)
+    // console.log("Level theme: ", LevelTheme[LevelThemeRandom], "\nLevel background: ", LevelBackground[LevelBackgroundRandom], "\nObjects: ", selectedObjects, "\nDecoration: ", selectedDecor)
     var soundEffect = new Audio("sound-effect.wav");
     if (localStorage.getItem("sound-on") == "yes" ) {
     soundEffect.volume = 0.3;
@@ -224,5 +220,10 @@
 if (localStorage.getItem("sound-on") == "no") {
     document.getElementById("sound-icon").style.filter = "invert(1)"
 };
+
+function getRandom(min, max) {
+  return Math.random() * (max - min) + min;
+}
+
 </script>    
 </html>
