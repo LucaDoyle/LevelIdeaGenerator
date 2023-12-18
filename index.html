@@ -126,6 +126,31 @@
   }
 }
 
+.button-beta {
+    display: block;
+    background-color: black;
+    font-family: 'Asap', sans-serif;
+    font-weight: bold;
+    color: white;
+    width: 75px;
+    height: 50px;
+    font-size: 20px;
+    border-radius: 15px;
+    border: none;
+    transition-duration: 0.2s;
+    text-shadow: 2px 2px #00000044;
+    transition-property: all;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.button-beta:hover {
+    width: 85px;
+    height: 60px;
+    border-radius: 18px;
+    font-size: 23px;
+}
+
 
 </style>
 <body>
@@ -149,6 +174,7 @@
         <p id="level-decor" class="idea">Click Randomise</p>
     </div>
     <button id="random-button">Randomise</button>
+    <button id="random-button" class="button-beta" onclick="alert('Hmmm... what could this mean?')">Beta</button>
 </body>
 
 <script>
