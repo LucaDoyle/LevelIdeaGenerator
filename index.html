@@ -152,7 +152,11 @@
 </body>
 
 <script>
+
     document.getElementById("random-button").onclick = function () {
+    if (localStorage == null) {
+        localStorage.setItem("sound-on", "yes");
+    }
     var LevelTheme = ["Original", "Digital"];
     var LevelBackground = ["Original", "Digital", "Medieval", "Future", "Falloween", "Winter"]
     var UsefulObjects = [" Spinning Plates", " Rotating Beams", " Rotating Walls", " Big Fans", " See-saws", " Slingus Flinguses", " Push Boxes", " Drawbridges", " Swinging Axes", " Rotating Hammers", " Pendulums", " Thicc Bonkuses", " Cannons", " Blizzard Fans", " Punching Glove", " Turnstiles", " Door Dash Doors", " Bumpers", " Drums", " Boom Blasters", " Bounce Boards", " Speed Arches", " Bean Barriers", " Power-up Spawners", " Carry Object Spawners", " Pressure Plates", " Trigger Buttons"]
@@ -181,7 +185,7 @@
     };
 
     function changeSound () {
-    if (localStorage.getItem("sound-on") == "yes" ) {
+    if (localStorage.getItem("sound-on") == "yes") {
         localStorage.setItem("sound-on", "no");
         document.getElementById("sound-icon").style.filter = "invert(1)";
     } else {
@@ -189,6 +193,8 @@
         document.getElementById("sound-icon").style.filter = "invert(0)";
     }
     };
+
+
 
 
 </script>    
