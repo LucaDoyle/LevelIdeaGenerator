@@ -10,6 +10,6 @@ This site has no affiliation with Mediatonic Limited or Epic Games Corporation.
 Some objects aren't present, such as the Start Line. This is because, for example, the start line is needed in every level, anyway.
 
 # Known issues
-Megaphone needs to be clicked twice before it can be used properly.
+There are none yet. If you see one, however, feel free to report an issue!
 
 ### Have fun!

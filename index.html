@@ -180,7 +180,7 @@
 <script>
 
     document.getElementById("random-button").onclick = function () {
-    if (localStorage == null) {
+    if (localStorage.getItem("sound-on") == "") {
         localStorage.setItem("sound-on", "yes");
     }
     var LevelTheme = ["Original", "Digital"];
@@ -221,7 +221,8 @@
     };
 
 
-
-
+if (localStorage.getItem("sound-on") == "no") {
+    document.getElementById("sound-icon").style.filter = "invert(1)"
+};
 </script>    
 </html>
