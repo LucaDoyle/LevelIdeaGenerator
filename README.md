@@ -6,11 +6,13 @@ It's really simple, go to https://lucadoyle.github.io/LevelIdeaGenerator/ and cl
 You then have a random idea. Don't like it? Click Randomise again, and again, and again!
 
 # Notes
-This site has no affiliation with Mediatonic Limited or Epic Games Corporation.
+This site has no affiliation with Mediatonic Limited, Tonic Games Limited (Tonic Games Group) or Epic Games Incorparated.
 Some objects aren't present, such as the Start Line. This is because, for example, the start line is needed in every level, anyway.
-There's a beta mode, with more detailed descriptions. This will become an alternative mode.
+There's a beta mode, with more detailed descriptions.
+This site isn't designed for high-quality levels. It's just a fun thing to mess around with when you're bored.
+Who knows, you may get inspiration while you make your level for an actual high-quality one?
 
 # Known issues
-There are none yet. If you see one, however, feel free to report an issue!
+On first launch, the site's Randomise sound effect doesn't play despite the volume being unmuted. Just press the megaphone button/
 
 ### Have fun!
