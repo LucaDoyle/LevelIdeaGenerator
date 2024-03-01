@@ -131,13 +131,13 @@
   }
 }
 
-.button-beta {
+.button-sentence-mode {
     display: block;
     background-color: black;
     font-family: 'Asap', sans-serif;
     font-weight: bold;
     color: white;
-    width: 75px;
+    width: 160px;
     height: 50px;
     font-size: 20px;
     border-radius: 15px;
@@ -150,8 +150,8 @@
     margin-bottom: 10px;
 }
 
-.button-beta:hover {
-    width: 85px;
+.button-sentence-mode:hover {
+    width: 180px;
     height: 60px;
     border-radius: 18px;
     font-size: 23px;
@@ -180,6 +180,10 @@ a:link, a:visited {
     <h1>Welcome!</h1>
     <img src="sound-icon.png" class="sound-change" id="sound-icon" onclick="changeSound();">
     <p>Click Randomise, and we'll give you a level idea!</p>
+    <p class="before-idea">Level type</p>
+    <div class="idea">
+        <p id="level-type" class="idea">Click Randomise</p>
+    </div>
     <p class="before-idea">Level theme</p>
     <div class="idea">
         <p id="level-theme" class="idea">Click Randomise</p>
@@ -197,7 +201,7 @@ a:link, a:visited {
         <p id="level-decor" class="idea">Click Randomise</p>
     </div>
     <button id="random-button">Randomise</button>
-    <button id="random-button" class="button-beta" onclick="window.location.href = ('beta.html')">Beta</button>
+    <button id="random-button" class="button-sentence-mode" onclick="window.location.href = ('sentence-mode.html')">Sentence mode</button>
     <p class="cc0" xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/"><a property="dct:title" rel="cc:attributionURL" href="https://lucadoyle.github.io/LevelIdeaGenerator">Level Idea Generator</a> by <a rel="cc:attributionURL dct:creator" property="cc:attributionName" href="https://github.com/LucaDoyle">LucaLikedCoding</a> is marked with <a href="http://creativecommons.org/publicdomain/zero/1.0?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">CC0 1.0 Universal<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/zero.svg?ref=chooser-v1"></a></p>
     <img src="biggiefalls.jpg" class="biggie">
 </body>
@@ -208,9 +212,10 @@ a:link, a:visited {
     if (localStorage.getItem("sound-on") == "") {
         localStorage.setItem("sound-on", "yes");
     }
+    var LevelType = ["Race", "Survival"]
     var LevelTheme = ["Original", "Digital"];
-    var LevelBackground = ["Original", "Digital", "Medieval", "Future", "Falloween", "Winter", "Space"]
-    var UsefulObjects = [" Spinning Plates", " Rotating Beams", " Rotating Walls", " Big Fans", " See-saws", " Slingus Flinguses", " Push Boxes", " Drawbridges", " Swinging Axes", " Rotating Hammers", " Pendulums", " Thicc Bonkuses", " Cannons", " Blizzard Fans", " Punching Glove", " Turnstiles", " Door Dash Doors", " Bumpers", " Drums", " Boom Blasters", " Bounce Boards", " Speed Arches", " Bean Barriers", " Power-up Spawners", " Carry Object Spawners", " Pressure Plates", " Trigger Buttons"]
+    var LevelBackground = ["Original", "Digital", "Medieval", "Future", "Falloween", "Winter", "Space", "Volcano"]
+    var UsefulObjects = [" Hex-a-gone tiles", " Spinning Plates", " Rotating Beams", " Rotating Walls", " Big Fans", " See-saws", " Slingus Flinguses", " Push Boxes", " Drawbridges", " Swinging Axes", " Rotating Hammers", " Pendulums", " Thicc Bonkuses", " Cannons", " Blizzard Fans", " Punching Glove", " Turnstiles", " Door Dash Doors", " Bumpers", " Drums", " Boom Blasters", " Bounce Boards", " Speed Arches", " Bean Barriers", " Bean Ball powerup", " Invisibility powerup", " Party Crasher powerup", " Carry Object Spawners", " Pressure Plates", " Trigger Buttons", " Elimination zones"]
     var LevelDecor = [" Flags", " Signs", " Rainbows", " Arches", " Clouds", " Stickers"]
     const shuffledObjects = UsefulObjects.sort(() => 0.5 - Math.random());
     let selectedObjects = shuffledObjects.slice(0, 3);
@@ -220,6 +225,9 @@ a:link, a:visited {
     const LevelThemeRandom = Math.floor(Math.random() * LevelTheme.length);
     document.getElementById("level-theme").innerText = LevelTheme[LevelThemeRandom];
 
+    const LevelTypeRandom = Math.floor(Math.random() * LevelType.length);
+    document.getElementById("level-type").innerText = LevelType[LevelTypeRandom];
+
     const LevelBackgroundRandom = Math.floor(Math.random() * LevelBackground.length);
     document.getElementById("level-background").innerText = LevelBackground[LevelBackgroundRandom];
 
@@ -227,7 +235,7 @@ a:link, a:visited {
 
     document.getElementById("level-decor").innerText = selectedDecor;
 
-    console.log("Level theme: ", LevelTheme[LevelThemeRandom], "\nLevel background: ", LevelBackground[LevelBackgroundRandom], "\nObjects: ", selectedObjects, "\nDecoration: ", selectedDecor)
+    console.log("Level type:", LevelType[LevelTypeRandom], "\nLevel theme: ", LevelTheme[LevelThemeRandom], "\nLevel background: ", LevelBackground[LevelBackgroundRandom], "\nObjects: ", selectedObjects, "\nDecoration: ", selectedDecor)
     var soundEffect = new Audio("sound-effect.wav");
     if (localStorage.getItem("sound-on") == "yes" ) {
     soundEffect.volume = 0.3;

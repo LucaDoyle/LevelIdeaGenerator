@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Level Idea Generator Beta</title>
+    <title>Sentence mode</title>
     <link rel="icon" type="image/png" href="favicon.png"/>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -172,7 +172,7 @@ a:link, a:visited {
 <body>
     <h1>Welcome!</h1>
     <img src="sound-icon.png" class="sound-change" id="sound-icon" onclick="changeSound();">
-    <p>This is a beta. We're making this tool better.</p>
+    <p>Sentence generator!</p>
     <h2 id="output">Click Randomise to start</h2>
     <button id="random-button">Randomise</button>
     <button id="random-button" class="button-beta" onclick="window.location.href = ('index.html')">Classic</button>
@@ -185,9 +185,9 @@ a:link, a:visited {
     if (localStorage.getItem("sound-on") == "") {
         localStorage.setItem("sound-on", "yes");
     }
-    var LevelTypesStarter  = ["An intresting", "A puzzle", "An amazing", "A difficult", "An exciting"];
-    var LevelBackgroundStarter = ["An original", "A digital", "A medieval", "A futuristic", "A spooky", "A wintery", "A space-themed"]
-    var PremadeObjects = [" full of Spinning Plates", " with lots of Rotating Beams", " including Rotating Walls", " with Big Fans", " maybe with a few See-saws", " full of Slingus Flinguses", " with lots of Push Boxes", " including Drawbridges", " maybe with a few Swinging Axes", " with Rotating Hammers", " with painful Pendulums", " including Mr/Ms Thicc Bonkus", " maybe with a few Cannons", " with a lot of Blizzard Fans", " with Punching Gloves", " including Turnstiles", " with Door Dash Doors", " with a few Bumpers", " a lot of Drums", " with a few Boom Blasters", " with Bounce Boards", " with some Speed Arches", " with blocky Bean Barriers", " maybe with a few Power-up Spawners", " maybe with a few Carry Object Spawners", " with some Pressure Plates", " with Trigger Buttons", " with a lot of Flags", " including Signs", " with Rainbows", " with some arches", " including clouds", " including some stickers to spruce up the decor"]
+    var LevelTypesStarter  = ["An intresting", "A puzzle", "An amazing", "A difficult", "An exciting", "A survival"];
+    var LevelBackgroundStarter = ["An original", "A digital", "A medieval", "A futuristic", "A spooky", "A wintery", "A space-themed", "A volcano-themed"]
+    var PremadeObjects = [" with a few Hex-a-gone tiles", " full of Spinning Plates", " with lots of Rotating Beams", " including Rotating Walls", " with Big Fans", " maybe with a few See-saws", " full of Slingus Flinguses", " with lots of Push Boxes", " including Drawbridges", " maybe with a few Swinging Axes", " with Rotating Hammers", " with painful Pendulums", " including Mr/Ms Thicc Bonkus", " maybe with a few Cannons", " with a lot of Blizzard Fans", " with Punching Gloves", " including Turnstiles", " with Door Dash Doors", " with a few Bumpers", " a lot of Drums", " with a few Boom Blasters", " with Bounce Boards", " with some Speed Arches", " with blocky Bean Barriers", " maybe with a few Power-up Spawners", " maybe with the Bean Ball powerup"," perhaps with the Invisibeans powerup", " even maybe with the Party Crasher powerup", " with some Pressure Plates", " with Trigger Buttons", " with lots of Flags", " including Signs", " with Rainbows", " with some arches", " including clouds", " including some stickers to spruce up the decor"];
     var MakeTheseObjects = [" with some fruit", " with a few clocks", " including trampolines", " full of food", " with vegetables", " with a massive clocktower", " including computers", " full of christmas trees", " decorate with loads of lights", " including some every-day living objects", " with some animals", " with a few books", " full of game consoles", " including some cars", " maybe with a few board games", " with planets", " with beans", " maybe even with a school"]
     const LevelStarters = LevelTypesStarter.concat(LevelBackgroundStarter);
     const LevelStartersRandom = Math.floor(Math.random() * LevelStarters.length);
@@ -200,14 +200,7 @@ a:link, a:visited {
     console.log(selectedLevelObjects)
     document.getElementById("output").innerText = LevelStarters[LevelStartersRandom] + " level," + selectedLevelObjects + ".";
 
-    // const LevelBackgroundRandom = Math.floor(Math.random() * LevelBackground.length);
-    // document.getElementById("level-background").innerText = LevelBackground[LevelBackgroundRandom];
-
-    // document.getElementById("objects").innerText = selectedObjects;
-
-    // document.getElementById("level-decor").innerText = selectedDecor;
-
-    // console.log("Level theme: ", LevelTheme[LevelThemeRandom], "\nLevel background: ", LevelBackground[LevelBackgroundRandom], "\nObjects: ", selectedObjects, "\nDecoration: ", selectedDecor)
+ 
     var soundEffect = new Audio("sound-effect.wav");
     if (localStorage.getItem("sound-on") == "yes" ) {
     soundEffect.volume = 0.3;
