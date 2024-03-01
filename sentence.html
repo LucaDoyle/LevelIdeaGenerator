@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Level Idea Generator Beta</title>
+    <title>Sentence mode</title>
     <link rel="icon" type="image/png" href="favicon.png"/>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Asap:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Titan+One&display=swap" rel="stylesheet">
 </head>
 <style>
-    h1 {
+     h1 {
         font-family: 'Titan One', sans-serif;
         margin-top: 0px;
         padding-top: 10px;
@@ -21,7 +21,7 @@
     html,body {
         margin: auto;
         text-align: center;
-        background-image: url("background.png");    
+        background-image: url("/background.png");  
         width: 100%;
         background-size: cover;
         background-repeat: no-repeat;
@@ -68,7 +68,8 @@
         font-weight: bold;
         color: white;
         margin: 20px;
-        width: 130px;
+        width: auto;
+        padding: 0 10px;
         height: 50px;
         font-size: 20px;
         border-radius: 20px;
@@ -77,13 +78,11 @@
         text-shadow: 2px 2px #00000044;
         transition-property: all;
         text-align: center;
+        transform: scale(1);
     }
 
     button:hover {
-        width: 140px;
-        height: 60px;
-        border-radius: 23px;
-        font-size: 23px;
+        transform: scale(1.2);
     }
 
     button:active {
@@ -126,38 +125,11 @@
   }
 }
 
-.button-beta {
+.button-sentence-mode {
     display: block;
-    background-color: black;
-    font-family: 'Asap', sans-serif;
-    font-weight: bold;
-    color: white;
-    width: 75px;
-    height: 50px;
-    font-size: 20px;
-    border-radius: 15px;
-    border: none;
-    transition-duration: 0.2s;
-    text-shadow: 2px 2px #00000044;
-    transition-property: all;
-    text-align: center;
     margin: 0 auto;
 }
 
-.button-beta:hover {
-    width: 85px;
-    height: 60px;
-    border-radius: 18px;
-    font-size: 23px;
-}
-
-h2 {
-    font-family: 'Asap', sans-serif;
-    text-shadow: 2px 2px #00000044;
-    font-weight: bold;
-    font-size: 50px;
-    color: white;
-}
 
 .cc0 {
     padding-bottom: 30px;
@@ -168,15 +140,32 @@ a:link, a:visited {
     color: white;
 }
 
+.biggie {
+    width: 0.2%;
+    transition: all 0.2s;
+
+}
+
+.biggie:hover {
+    width: 50%;
+}
+
+h2 {
+    font-family: 'Asap', sans-serif;
+    text-shadow: 2px 2px #00000044;
+    font-weight: bold;
+    font-size: 50px;
+    color: white;
+}
 </style>
 <body>
     <h1>Welcome!</h1>
     <img src="sound-icon.png" class="sound-change" id="sound-icon" onclick="changeSound();">
-    <p>This is a beta. We're making this tool better.</p>
+    <p>Generate a random idea!</p>
     <h2 id="output">Click Randomise to start</h2>
     <button id="random-button">Randomise</button>
-    <button id="random-button" class="button-beta" onclick="window.location.href = ('index.html')">Classic</button>
-    <p class="cc0" xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/"><a property="dct:title" rel="cc:attributionURL" href="https://lucadoyle.github.io/LevelIdeaGenerator">Level Idea Generator</a> by <a rel="cc:attributionURL dct:creator" property="cc:attributionName" href="https://github.com/LucaDoyle">LucaLikedCoding</a> is marked with <a href="http://creativecommons.org/publicdomain/zero/1.0?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">CC0 1.0 Universal<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/zero.svg?ref=chooser-v1"></a></p>
+    <button id="random-button" class="button-sentence-mode" onclick="window.location.href = ('index.html')">Classic</button>
+    <p class="cc0" xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/"><a property="dct:title" rel="cc:attributionURL" href="https://lucamakesstuff.com/LevelIdeaGenerator">Level Idea Generator</a> by <a rel="cc:attributionURL dct:creator" property="cc:attributionName" href="https://github.com/LucaDoyle">LucaLikedCoding</a> is marked with <a href="http://creativecommons.org/publicdomain/zero/1.0?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">CC0 1.0 Universal<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/zero.svg?ref=chooser-v1"></a></p>
 </body>
 
 <script>
@@ -185,9 +174,9 @@ a:link, a:visited {
     if (localStorage.getItem("sound-on") == "") {
         localStorage.setItem("sound-on", "yes");
     }
-    var LevelTypesStarter  = ["An intresting", "A puzzle", "An amazing", "A difficult", "An exciting"];
+    var LevelTypesStarter  = ["An intresting", "A puzzle", "An amazing", "A difficult", "An exciting", "A survival"];
     var LevelBackgroundStarter = ["An original", "A digital", "A medieval", "A futuristic", "A spooky", "A wintery", "A space-themed"]
-    var PremadeObjects = [" full of Spinning Plates", " with lots of Rotating Beams", " including Rotating Walls", " with Big Fans", " maybe with a few See-saws", " full of Slingus Flinguses", " with lots of Push Boxes", " including Drawbridges", " maybe with a few Swinging Axes", " with Rotating Hammers", " with painful Pendulums", " including Mr/Ms Thicc Bonkus", " maybe with a few Cannons", " with a lot of Blizzard Fans", " with Punching Gloves", " including Turnstiles", " with Door Dash Doors", " with a few Bumpers", " a lot of Drums", " with a few Boom Blasters", " with Bounce Boards", " with some Speed Arches", " with blocky Bean Barriers", " maybe with a few Power-up Spawners", " maybe with a few Carry Object Spawners", " with some Pressure Plates", " with Trigger Buttons", " with a lot of Flags", " including Signs", " with Rainbows", " with some arches", " including clouds", " including some stickers to spruce up the decor"]
+    var PremadeObjects = ["with some Hex-a-gone tiles", "full of Spinning Plates", " with lots of Rotating Beams", " including Rotating Walls", " with Big Fans", " maybe with a few See-saws", " full of Slingus Flinguses", " with lots of Push Boxes", " including Drawbridges", " maybe with a few Swinging Axes", " with Rotating Hammers", " with painful Pendulums", " including Mr/Ms Thicc Bonkus", " maybe with a few Cannons", " with a lot of Blizzard Fans", " with Punching Gloves", " including Turnstiles", " with Door Dash Doors", " with a few Bumpers", " a lot of Drums", " with a few Boom Blasters", " with Bounce Boards", " with some Speed Arches", " with blocky Bean Barriers", " maybe with the Bean Ball powerup", " perhaps with the Invisibility powerup", " with the Party Crasher powerup", " maybe with a few Carry Object Spawners", " with some Pressure Plates", " with Trigger Buttons", " with a lot of Flags", " including Signs", " with Rainbows", " with some arches", " including clouds", " including some stickers to spruce up the decor"]
     var MakeTheseObjects = [" with some fruit", " with a few clocks", " including trampolines", " full of food", " with vegetables", " with a massive clocktower", " including computers", " full of christmas trees", " decorate with loads of lights", " including some every-day living objects", " with some animals", " with a few books", " full of game consoles", " including some cars", " maybe with a few board games", " with planets", " with beans", " maybe even with a school"]
     const LevelStarters = LevelTypesStarter.concat(LevelBackgroundStarter);
     const LevelStartersRandom = Math.floor(Math.random() * LevelStarters.length);

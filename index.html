@@ -9,7 +9,7 @@
     <meta content="https://lucamakesstuff.com/levelideagenerator/favicon.png" property="og:image" />
     <meta content="#0080DE" data-react-helmet="true" name="theme-color" />
     <title>Level Idea Generator</title>
-    <link rel="icon" type="image/png" href="/levelideagenerator/favicon.png"/>
+    <link rel="icon" type="image/png" href="/favicon.png"/>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Asap:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Titan+One&display=swap" rel="stylesheet">
@@ -26,7 +26,7 @@
     html,body {
         margin: auto;
         text-align: center;
-        background-image: url("/levelideagenerator/background.png");  
+        background-image: url("/background.png");  
         width: 100%;
         background-size: cover;
         background-repeat: no-repeat;
@@ -73,7 +73,8 @@
         font-weight: bold;
         color: white;
         margin: 20px;
-        width: 130px;
+        width: auto;
+        padding: 0 10px;
         height: 50px;
         font-size: 20px;
         border-radius: 20px;
@@ -82,13 +83,11 @@
         text-shadow: 2px 2px #00000044;
         transition-property: all;
         text-align: center;
+        transform: scale(1);
     }
 
     button:hover {
-        width: 140px;
-        height: 60px;
-        border-radius: 23px;
-        font-size: 23px;
+        transform: scale(1.2);
     }
 
     button:active {
@@ -131,31 +130,11 @@
   }
 }
 
-.button-beta {
+.button-sentence-mode {
     display: block;
-    background-color: black;
-    font-family: 'Asap', sans-serif;
-    font-weight: bold;
-    color: white;
-    width: 75px;
-    height: 50px;
-    font-size: 20px;
-    border-radius: 15px;
-    border: none;
-    transition-duration: 0.2s;
-    text-shadow: 2px 2px #00000044;
-    transition-property: all;
-    text-align: center;
     margin: 0 auto;
-    margin-bottom: 10px;
 }
 
-.button-beta:hover {
-    width: 85px;
-    height: 60px;
-    border-radius: 18px;
-    font-size: 23px;
-}
 
 .cc0 {
     padding-bottom: 30px;
@@ -178,8 +157,12 @@ a:link, a:visited {
 </style>
 <body>
     <h1>Welcome!</h1>
-    <img src="/levelideagenerator/sound-icon.png" class="sound-change" id="sound-icon" onclick="changeSound();">
+    <img src="/sound-icon.png" class="sound-change" id="sound-icon" onclick="changeSound();">
     <p>Click Randomise, and we'll give you a level idea!</p>
+    <p class="before-idea">Level type</p>
+    <div class="idea">
+        <p id="level-type" class="idea">Click Randomise</p>
+    </div>
     <p class="before-idea">Level theme</p>
     <div class="idea">
         <p id="level-theme" class="idea">Click Randomise</p>
@@ -197,9 +180,9 @@ a:link, a:visited {
         <p id="level-decor" class="idea">Click Randomise</p>
     </div>
     <button id="random-button">Randomise</button>
-    <button id="random-button" class="button-sentence-mode" onclick="window.location.href = ('/levelideagenerator/sentence-mode.html')">Beta</button>
+    <button id="random-button" class="button-sentence-mode" onclick="window.location.href = ('/sentence.html')">Sentence mode</button>
     <p class="cc0" xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/"><a property="dct:title" rel="cc:attributionURL" href="https://lucamakesstuff.com/levelideagenerator">Level Idea Generator</a> by <a rel="cc:attributionURL dct:creator" property="cc:attributionName" href="https://github.com/LucaDoyle">LucaLikedCoding</a> is marked with <a href="http://creativecommons.org/publicdomain/zero/1.0?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">CC0 1.0 Universal<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/zero.svg?ref=chooser-v1"></a></p>
-    <img src="/levelideagenerator/biggiefalls.jpg" class="biggie">
+    <img src="/biggiefalls.jpg" class="biggie">
 </body>
 
 <script>
@@ -208,15 +191,19 @@ a:link, a:visited {
     if (localStorage.getItem("sound-on") == "") {
         localStorage.setItem("sound-on", "yes");
     }
+    var LevelType = ["Race", "Survival"];
     var LevelTheme = ["Original", "Digital"];
-    var LevelBackground = ["Original", "Digital", "Medieval", "Future", "Falloween", "Winter", "Space"]
-    var UsefulObjects = [" Spinning Plates", " Rotating Beams", " Rotating Walls", " Big Fans", " See-saws", " Slingus Flinguses", " Push Boxes", " Drawbridges", " Swinging Axes", " Rotating Hammers", " Pendulums", " Thicc Bonkuses", " Cannons", " Blizzard Fans", " Punching Glove", " Turnstiles", " Door Dash Doors", " Bumpers", " Drums", " Boom Blasters", " Bounce Boards", " Speed Arches", " Bean Barriers", " Power-up Spawners", " Carry Object Spawners", " Pressure Plates", " Trigger Buttons"]
+    var LevelBackground = ["Original", "Digital", "Medieval", "Future", "Falloween", "Winter", "Space", "Volcano"]
+    var UsefulObjects = [" Hex-a-gone tiles", " Spinning Plates", " Rotating Beams", " Rotating Walls", " Big Fans", " See-saws", " Slingus Flinguses", " Push Boxes", " Drawbridges", " Swinging Axes", " Rotating Hammers", " Pendulums", " Thicc Bonkuses", " Cannons", " Blizzard Fans", " Punching Glove", " Turnstiles", " Door Dash Doors", " Bumpers", " Drums", " Boom Blasters", " Bounce Boards", " Speed Arches", " Bean Barriers", " Bean Ball power-up", " Party Crasher powerup", " Invisibility powerup", " Carry Object Spawners", " Pressure Plates", " Trigger Buttons"]
     var LevelDecor = [" Flags", " Signs", " Rainbows", " Arches", " Clouds", " Stickers"]
     const shuffledObjects = UsefulObjects.sort(() => 0.5 - Math.random());
     let selectedObjects = shuffledObjects.slice(0, 3);
     const shuffledDecor = LevelDecor.sort(() => 0.5 - Math.random());
     let selectedDecor = shuffledDecor.slice(0, 2);
     
+    const LevelTypeRandom = Math.floor(Math.random() * LevelType.length);
+    document.getElementById("level-type").innerText = LevelType[LevelType];
+
     const LevelThemeRandom = Math.floor(Math.random() * LevelTheme.length);
     document.getElementById("level-theme").innerText = LevelTheme[LevelThemeRandom];
 
@@ -227,7 +214,6 @@ a:link, a:visited {
 
     document.getElementById("level-decor").innerText = selectedDecor;
 
-    console.log("Level theme: ", LevelTheme[LevelThemeRandom], "\nLevel background: ", LevelBackground[LevelBackgroundRandom], "\nObjects: ", selectedObjects, "\nDecoration: ", selectedDecor)
     var soundEffect = new Audio("sound-effect.wav");
     if (localStorage.getItem("sound-on") == "yes" ) {
     soundEffect.volume = 0.3;
