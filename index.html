@@ -131,13 +131,13 @@
   }
 }
 
-.button-sentence-mode {
+.button-beta {
     display: block;
     background-color: black;
     font-family: 'Asap', sans-serif;
     font-weight: bold;
     color: white;
-    width: 160px;
+    width: 75px;
     height: 50px;
     font-size: 20px;
     border-radius: 15px;
@@ -150,8 +150,8 @@
     margin-bottom: 10px;
 }
 
-.button-sentence-mode:hover {
-    width: 180px;
+.button-beta:hover {
+    width: 85px;
     height: 60px;
     border-radius: 18px;
     font-size: 23px;
@@ -180,10 +180,6 @@ a:link, a:visited {
     <h1>Welcome!</h1>
     <img src="/levelideagenerator/sound-icon.png" class="sound-change" id="sound-icon" onclick="changeSound();">
     <p>Click Randomise, and we'll give you a level idea!</p>
-    <p class="before-idea">Level type</p>
-    <div class="idea">
-        <p id="level-type" class="idea">Click Randomise</p>
-    </div>
     <p class="before-idea">Level theme</p>
     <div class="idea">
         <p id="level-theme" class="idea">Click Randomise</p>
@@ -212,10 +208,9 @@ a:link, a:visited {
     if (localStorage.getItem("sound-on") == "") {
         localStorage.setItem("sound-on", "yes");
     }
-    var LevelType = ["Race", "Survival"]
     var LevelTheme = ["Original", "Digital"];
-    var LevelBackground = ["Original", "Digital", "Medieval", "Future", "Falloween", "Winter", "Space", "Volcano"]
-    var UsefulObjects = [" Hex-a-gone tiles", " Spinning Plates", " Rotating Beams", " Rotating Walls", " Big Fans", " See-saws", " Slingus Flinguses", " Push Boxes", " Drawbridges", " Swinging Axes", " Rotating Hammers", " Pendulums", " Thicc Bonkuses", " Cannons", " Blizzard Fans", " Punching Glove", " Turnstiles", " Door Dash Doors", " Bumpers", " Drums", " Boom Blasters", " Bounce Boards", " Speed Arches", " Bean Barriers", " Bean Ball powerup", " Invisibility powerup", " Party Crasher powerup", " Carry Object Spawners", " Pressure Plates", " Trigger Buttons", " Elimination zones"]
+    var LevelBackground = ["Original", "Digital", "Medieval", "Future", "Falloween", "Winter", "Space"]
+    var UsefulObjects = [" Spinning Plates", " Rotating Beams", " Rotating Walls", " Big Fans", " See-saws", " Slingus Flinguses", " Push Boxes", " Drawbridges", " Swinging Axes", " Rotating Hammers", " Pendulums", " Thicc Bonkuses", " Cannons", " Blizzard Fans", " Punching Glove", " Turnstiles", " Door Dash Doors", " Bumpers", " Drums", " Boom Blasters", " Bounce Boards", " Speed Arches", " Bean Barriers", " Power-up Spawners", " Carry Object Spawners", " Pressure Plates", " Trigger Buttons"]
     var LevelDecor = [" Flags", " Signs", " Rainbows", " Arches", " Clouds", " Stickers"]
     const shuffledObjects = UsefulObjects.sort(() => 0.5 - Math.random());
     let selectedObjects = shuffledObjects.slice(0, 3);
@@ -224,9 +219,6 @@ a:link, a:visited {
     
     const LevelThemeRandom = Math.floor(Math.random() * LevelTheme.length);
     document.getElementById("level-theme").innerText = LevelTheme[LevelThemeRandom];
-
-    const LevelTypeRandom = Math.floor(Math.random() * LevelType.length);
-    document.getElementById("level-type").innerText = LevelType[LevelTypeRandom];
 
     const LevelBackgroundRandom = Math.floor(Math.random() * LevelBackground.length);
     document.getElementById("level-background").innerText = LevelBackground[LevelBackgroundRandom];
