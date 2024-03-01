@@ -1,8 +1,9 @@
+## This website has migrated to https://lucamakesstuff.com/LevelIdeaGenerator/
 # Level Idea Generator
 A Fall Guys creative level idea generator.
 
 # Usage
-It's really simple, go to https://lucadoyle.github.io/LevelIdeaGenerator/ and click Randomise.
+It's really simple, go to https://lucamakesstuff.com/LevelIdeaGenerator/ and click Randomise.
 You then have a random idea. Don't like it? Click Randomise again, and again, and again!
 
 # Notes
