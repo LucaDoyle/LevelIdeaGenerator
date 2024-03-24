@@ -217,7 +217,13 @@ a:link, a:visited {
     var soundEffect = new Audio("/levelideagenerator/sound-effect.wav");
     if (localStorage.getItem("sound-on") == "yes" ) {
     soundEffect.volume = 0.3;
-    soundEffect.play();
+
+    var isPlaying = soundEffect.currentTime > 0 && !soundEffect.paused && !soundEffect.ended 
+    && soundEffect.readyState > soundEffect.HAVE_CURRENT_DATA;
+
+    if (!isPlaying) {
+        soundEffect.play();
+    }
     };
 
 
