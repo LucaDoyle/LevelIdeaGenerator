@@ -174,7 +174,8 @@ h2 {
 </body>
 
 <script>
-
+    var soundEffect = new Audio("/levelideagenerator/sound-effect.wav");
+    soundEffect.volume = 0.3;
     document.getElementById("random-button").onclick = function () {
     if (localStorage.getItem("sound-on") == "") {
         localStorage.setItem("sound-on", "yes");
@@ -195,15 +196,8 @@ h2 {
     document.getElementById("output").innerText = LevelStarters[LevelStartersRandom] + " level," + selectedLevelObjects + ".";
 
  
-    var soundEffect = new Audio("/levelideagenerator/sound-effect.wav");
     if (localStorage.getItem("sound-on") == "yes" ) {
-    soundEffect.volume = 0.3;
-    var isPlaying = soundEffect.currentTime > 0 && !soundEffect.paused && !soundEffect.ended 
-    && soundEffect.readyState > soundEffect.HAVE_CURRENT_DATA;
-
-    if (!isPlaying) {
         soundEffect.play();
-    }
     };
     };
     
