@@ -156,7 +156,7 @@ a:link, a:visited {
 }
 </style>
 <body>
-    
+
     <h1>Welcome!</h1>
     <img src="/levelideagenerator/sound-icon.png" class="sound-change" id="sound-icon" onclick="changeSound();">
     <p>Click Randomise, and we'll give you a level idea!</p>
@@ -189,7 +189,6 @@ a:link, a:visited {
 <script>
     var soundEffect = new Audio("/levelideagenerator/sound-effect.wav");
     soundEffect.volume = 0.3;
-
     document.getElementById("random-button").onclick = function () {
     if (localStorage.getItem("sound-on") == "") {
         localStorage.setItem("sound-on", "yes");
@@ -217,12 +216,10 @@ a:link, a:visited {
 
     document.getElementById("level-decor").innerText = selectedDecor;
 
-    var soundEffect = new Audio("/levelideagenerator/sound-effect.wav");
     if (localStorage.getItem("sound-on") == "yes" ) {
         soundEffect.play();
     };
     };
-
 
     function changeSound () {
     if (localStorage.getItem("sound-on") == "yes") {
