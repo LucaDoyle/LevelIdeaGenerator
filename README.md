@@ -1,4 +1,4 @@
-## This website has migrated to https://lucamakesstuff.com/LevelIdeaGenerator/
+## This website has migrated to https://lucamakesstuff.com/levelideagenerator/
 # Level Idea Generator
 A Fall Guys creative level idea generator.
 
